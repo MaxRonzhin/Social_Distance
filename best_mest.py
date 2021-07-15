@@ -4,13 +4,14 @@ import numpy as np
 def empty_seats(seats):
     x,y = np.where(seats == 0)
     empty_seats = []
-    for n in range(0, len(x)):
-        empty_seats.append([x[n]+1, y[n]+1])
-    print('Свободные места в зале:')
     row_1, row_2, row_3, row_4, row_5 = [], [], [], [], []
     rows = [row_1, row_2, row_3, row_4, row_5]
     column_1, column_2, column_3, column_4, column_5 = [], [], [], [], []
     columns = [column_1, column_2, column_3, column_4, column_5]
+    for n in range(0, len(x)):
+        empty_seats.append([x[n]+1, y[n]+1])
+    # print(empty_seats)
+    print('Свободные места в зале:')
     for i in empty_seats:
         print(f'ряд {i[0]}, место {i[1]}')
         if i[0] == 1:
@@ -34,6 +35,7 @@ def empty_seats(seats):
             column_4.append(i[0]) 
         elif i[1] == 5:
             column_5.append(i[0])
+    # print(rows, columns)
     return rows, columns
 
 
